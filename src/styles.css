@@ -1,1 +1,92 @@
 /* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+
+/* font family */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&display=swap");
+:root {
+  /* --primary-color: #026467; */
+  --primary-color: #018786;
+  --secondary-color: #026467;
+  --body-text-color: #596392;
+  --navbar-footer-color: #f9f9f9;
+  --danger-color: #b00020;
+  --black: #061a23;
+
+  --primary-bg: linear-gradient(
+    to bottom right,
+    var(--secondary-color),
+    var(--primary-color)
+  );
+
+  --font-light: 300;
+  --font-bold: 500;
+  --font-bolder: 700;
+  --main-font-family: "Roboto", sans-serif;
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  /* font-size: 10px; 10/16*100 */
+  font-size: 62.5%;
+}
+
+body {
+  box-sizing: border-box;
+  font-family: var(--main-font-family);
+  font-size: 1.4rem;
+  color: var(--black);
+}
+
+h2 {
+  font-size: 4.5rem;
+  margin-bottom: 1rem;
+}
+
+.app-body {
+  margin-top: 15rem;
+  height: 100%;
+  min-height: 35vh;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+.logo,
+.logo:hover,
+.logo:focus {
+  font-family: "Dancing Script", cursive;
+  color: var(--black);
+}
+
+.nav-link {
+  text-transform: uppercase;
+  color: var(--primary-color);
+}
+
+.nav-link:hover {
+  height: 100%;
+  color: #000;
+}
+
+.subscription-section {
+  padding: 2rem 5rem;
+}
+
+.card {
+  border-radius: 1.5rem;
+  overflow: hidden;
+}
+
+.card-category {
+  background-image: var(--primary-bg);
+  box-shadow: 4px 6px 0px 2px #026467;
+}
