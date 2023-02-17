@@ -19,6 +19,7 @@
           name="category"
           ngModel
           #newCategory="ngModel"
+          [(ngModel)]="formCategory"
           required
           [ngClass]="{
             'is-invalid border-red': newCategory.touched && newCategory.invalid
@@ -30,14 +31,6 @@
         >
           Category Field is required
         </div>
-        <!-- <div
-          class="alert alert-light"
-          *ngIf="
-            categoryForm.touched && categoryForm.valid && categoryForm.submitted
-          "
-        >
-          Category added successfully
-        </div> -->
       </div>
       <div class="col-md-2">
         <button
@@ -48,5 +41,31 @@
         </button>
       </div>
     </form>
+  </div>
+</div>
+<div class="container card p-5 mt-5 shadow-lg">
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table table-striped hover">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Category</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let cat of categoryArray; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>{{ cat.category }}</td>
+            <td>
+              <button class="btn btn-primary" (click)="onEdit(cat.category)">
+                Edit
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>

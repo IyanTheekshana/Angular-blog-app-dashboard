@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
-import { collection, Firestore } from '@angular/fire/firestore';
+import { collection, collectionData, Firestore } from '@angular/fire/firestore';
 import { addDoc } from '@firebase/firestore';
 import { ToastrService } from 'ngx-toastr';
+import { Observable } from 'rxjs';
+import { Category } from '../models/category';
 @Injectable({
   providedIn: 'root',
 })
@@ -19,5 +21,12 @@ export class CategoriesService {
       .catch((err) => {
         console.error(err);
       });
+  }
+
+  loadData() {
+    let $categories = collection(this.afs, 'categories');
+    return collectionData($categories, { idField: 'id' }) as Observable<
+      Category[]
+    >;
   }
 }

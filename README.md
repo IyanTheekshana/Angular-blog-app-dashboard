@@ -24,5 +24,10 @@
 6. added service to category and interface.
 7. added success message using to ngx-toastr
 
-`npm i ngx-toastr` - https://www.npmjs.com/package/ngx-toastr
+`npm i ngx-toastr` - https://www.npmjs.com/package/ngx-toastr \
 `npm i @angular/animations` - https://www.npmjs.com/package/@angular/animations
+
+## 6. step
+
+8. added table and rendered data from database
+9. adde click event to edit button
