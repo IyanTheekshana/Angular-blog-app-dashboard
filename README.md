@@ -12,3 +12,7 @@
 ## 3° step
 
 4. Add category to nosql database using firebase (firestore)
+
+## 4. step
+
+5. Improved category form with conditions

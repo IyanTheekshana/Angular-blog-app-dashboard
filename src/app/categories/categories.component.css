@@ -28,3 +28,12 @@ label,
 .card {
   border: none;
 }
+
+.border-red {
+  border: 1px solid var(--danger-color);
+}
+
+.alert {
+  color: var(--danger-color);
+  font-size: 1.2rem;
+}
