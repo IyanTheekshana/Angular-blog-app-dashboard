@@ -89,4 +89,14 @@ a {
 .card-category {
   background-image: var(--primary-bg);
   box-shadow: 4px 6px 0px 2px #026467;
+  width: 100%;
+}
+
+.card h2 {
+  font-size: 3rem;
+}
+
+.sub-title {
+  font-size: 1.8rem;
+  font-weight: 300;
 }

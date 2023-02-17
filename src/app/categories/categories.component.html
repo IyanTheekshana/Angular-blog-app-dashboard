@@ -1,0 +1,26 @@
+<div class="container card p-5 shadow-lg">
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <h2>New Categories</h2>
+      <p class="sub-title">You can add new categories from here</p>
+    </div>
+  </div>
+  <div>
+    <form
+      class="row pt-4 pb-4"
+      #categoryForm="ngForm"
+      (ngSubmit)="onSubmit(categoryForm)"
+    >
+      <input
+        type="text"
+        class="form-control shadow-sm col-md-10"
+        placeholder="Add New Category"
+        name="category"
+        ngModel
+      />
+      <div class="col-md-2">
+        <button class="btn shadow-sm btn-block btn-info mb-2">Add</button>
+      </div>
+    </form>
+  </div>
+</div>

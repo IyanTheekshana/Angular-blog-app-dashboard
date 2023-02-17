@@ -1,0 +1,30 @@
+input,
+textarea {
+  font-size: 1.2rem;
+  padding-left: 2rem;
+  font-weight: 700;
+  color: var(--secondary-color);
+  border: none;
+  background-color: var(--navbar-footer-color);
+  max-width: 100% !important;
+}
+
+input,
+.btn {
+  height: 3.5rem;
+}
+
+input::placeholder,
+textarea::placeholder {
+  font-family: var(--main-font-family);
+  font-weight: 300;
+}
+
+label,
+.btn {
+  font-size: 1.4rem;
+}
+
+.card {
+  border: none;
+}
