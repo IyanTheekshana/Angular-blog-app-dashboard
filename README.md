@@ -30,4 +30,9 @@
 ## 6. step
 
 8. added table and rendered data from database
-9. adde click event to edit button
+9. added click event to edit button
+
+## 7. step
+
+10. completed update/delete methods
+11. added deleted button

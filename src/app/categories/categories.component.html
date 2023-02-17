@@ -1,8 +1,8 @@
 <div class="container card p-5 shadow-lg">
   <div class="row">
     <div class="col-md-12 text-center">
-      <h2>New Categories</h2>
-      <p class="sub-title">You can add new categories from here</p>
+      <h2>{{ formStaus }} Categories</h2>
+      <p class="sub-title">You can {{ formStaus }} categories from here</p>
     </div>
   </div>
   <div>
@@ -37,7 +37,7 @@
           class="btn shadow-sm btn-block btn-info mb-2"
           [disabled]="categoryForm.invalid"
         >
-          Add
+          {{ formStaus }}
         </button>
       </div>
     </form>
@@ -45,7 +45,7 @@
 </div>
 <div class="container card p-5 mt-5 shadow-lg">
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-8 mx-auto">
       <table class="table table-striped hover">
         <thead>
           <tr>
@@ -59,8 +59,14 @@
             <td>{{ i + 1 }}</td>
             <td>{{ cat.category }}</td>
             <td>
-              <button class="btn btn-primary" (click)="onEdit(cat.category)">
+              <button
+                class="btn btn-primary"
+                (click)="onEdit(cat.category, cat.id)"
+              >
                 Edit
+              </button>
+              <button class="btn btn-danger ml-2" (click)="onDelete(cat.id)">
+                Delete
               </button>
             </td>
           </tr>
