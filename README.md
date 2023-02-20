@@ -56,3 +56,7 @@
 ## 11° step
 
 19. added posts service and created uploadImage method to upload and get image url
+
+## 12° step
+
+20. Added table to all post to show posts

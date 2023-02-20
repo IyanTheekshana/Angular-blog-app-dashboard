@@ -133,3 +133,11 @@ a {
   font-size: 1.8rem;
   font-weight: 300;
 }
+
+.angular-editor-button {
+  font-size: 1.4rem;
+}
+
+.angular-editor-textarea {
+  min-height: 25vh !important;
+}

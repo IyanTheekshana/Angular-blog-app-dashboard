@@ -86,5 +86,6 @@ export class NewPostComponent implements OnInit {
     };
     console.log(postData);
     this.postService.uploadImage(this.selectedImage, postData);
+    this.postForm.reset();
   }
 }
