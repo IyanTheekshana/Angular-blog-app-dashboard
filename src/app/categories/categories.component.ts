@@ -23,15 +23,20 @@ export class CategoriesComponent implements OnInit {
   }
 
   onSubmit(formData: any) {
-    let categoryData: Category = {
-      id: formData.value.id,
+    // let categoryData: Category = {
+    //   id: formData.value.id,
+    //   category: formData.value.category,
+    // };
+    let categoryDataNew: Category = {
       category: formData.value.category,
     };
 
+    console.log(categoryDataNew);
+
     if (this.formStaus == 'Edit') {
       this.categoryService.updateData(this.categoryId, formData.value.category);
-    } else if (this.formStaus == 'Add New') {
-      this.categoryService.saveData(categoryData);
+    } else {
+      this.categoryService.saveData(categoryDataNew);
     }
   }
 

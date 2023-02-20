@@ -18,6 +18,8 @@
     var(--secondary-color),
     var(--primary-color)
   );
+  --secondary-bg: linear-gradient(to bottom right, #edaa03, #ee9285);
+  --ternary-bg: linear-gradient(to bottom right, #005b94, #012643);
 
   --font-light: 300;
   --font-bold: 500;
@@ -44,12 +46,22 @@ body {
   font-size: 1.4rem;
   color: var(--black);
 }
-
+a {
+  cursor: pointer;
+}
 h2 {
   font-size: 4.5rem;
   margin-bottom: 1rem;
 }
 
+.btn {
+  font-size: 1.4rem;
+}
+
+.btn-warning,
+.btn-warning:hover {
+  color: #fff;
+}
 .app-body {
   margin-top: 15rem;
   height: 100%;
@@ -89,7 +101,28 @@ a {
 .card-category {
   background-image: var(--primary-bg);
   box-shadow: 4px 6px 0px 2px #026467;
+}
+
+.card-newpost {
+  background-image: var(--secondary-bg);
+  box-shadow: 4px 6px 0px 2px #ee9285;
+}
+
+.card-allpost {
+  background-image: var(--ternary-bg);
+  box-shadow: 4px 6px 0px 2px #012643;
+}
+
+.card-box {
   width: 100%;
+  min-height: 18rem;
+}
+
+.card-box .card-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .card h2 {

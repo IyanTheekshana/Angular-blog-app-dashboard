@@ -12,6 +12,8 @@ import { CategoriesComponent } from './categories/categories.component';
 import { FormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AllPostComponent } from './post/all-post/all-post.component';
+import { NewPostComponent } from './post/new-post/new-post.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FooterComponent,
     DashboardComponent,
     CategoriesComponent,
+    AllPostComponent,
+    NewPostComponent,
   ],
   imports: [
     BrowserModule,

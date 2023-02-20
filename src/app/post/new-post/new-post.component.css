@@ -1,0 +1,43 @@
+input,
+textarea,
+select {
+  font-size: 1.4rem;
+  padding-left: 2rem;
+  color: var(--secondary-color);
+  border: none;
+  background-color: var(--navbar-footer-color);
+  max-width: 100% !important;
+}
+
+input,
+.btn {
+  height: 3.5rem;
+}
+
+input::placeholder,
+textarea::placeholder {
+  font-family: var(--main-font-family);
+  font-weight: 300;
+}
+
+label,
+.btn {
+  font-size: 1.4rem;
+}
+
+.card {
+  border: none;
+}
+
+.border-red {
+  border: 1px solid var(--danger-color);
+}
+
+.alert {
+  color: var(--danger-color);
+  font-size: 1.2rem;
+}
+
+.imagepreview {
+  width: 100%;
+}

@@ -36,3 +36,8 @@
 
 10. completed update/delete methods
 11. added deleted button
+
+## 8. step
+
+12. Added title
+13. Added preview image
