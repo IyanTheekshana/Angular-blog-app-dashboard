@@ -6,7 +6,7 @@
     </div>
   </div>
   <div>
-    <form class="pt-4 pb-4" [formGroup]="postForm">
+    <form class="pt-4 pb-4" [formGroup]="postForm" (ngSubmit)="onSubmit()">
       <div class="row">
         <div class="col-md-7">
           <div class="form-group">
@@ -76,7 +76,7 @@
               <option value="#">Choose</option>
               <option
                 *ngFor="let cat of categoriesArray; let i = index"
-                value="{{ cat.id }}"
+                value="{{ cat.id }}-{{ cat.category }}"
               >
                 {{ cat.category }}
               </option>
@@ -142,7 +142,9 @@
       <div class="row pt-5">
         <div class="col-md-3 text-center"></div>
         <div class="col-md-3 text-center">
-          <button class="btn btn-info btn-block">Save Post</button>
+          <button class="btn btn-info btn-block" [disabled]="postForm.invalid">
+            Save Post
+          </button>
         </div>
         <div class="col-md-3 text-center">
           <button class="btn btn-warning btn-block" routerLink="/">

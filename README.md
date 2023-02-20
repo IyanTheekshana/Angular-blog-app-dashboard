@@ -15,11 +15,11 @@
 
    `ng add @angular/fire` - https://www.npmjs.com/package/@angular/fire
 
-## 4. step
+## 4° step
 
 5. Improved category form with conditions
 
-## 5. step
+## 5° step
 
 6. added service to category and interface.
 7. added success message using to ngx-toastr
@@ -27,23 +27,28 @@
 `npm i ngx-toastr` - https://www.npmjs.com/package/ngx-toastr \
 `npm i @angular/animations` - https://www.npmjs.com/package/@angular/animations
 
-## 6. step
+## 6° step
 
 8. added table and rendered data from database
 9. added click event to edit button
 
-## 7. step
+## 7° step
 
 10. completed update/delete methods
 11. added deleted button
 
-## 8. step
+## 8° step
 
 12. Added title
 13. Added preview image
 14. Added combo box to categories
 
-## 9. step
+## 9° step
 
 15. added reactive form module
 16. added validators to form
+
+## 10° step
+
+17. created post interface
+18. implemented onSubmit method
