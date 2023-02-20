@@ -41,3 +41,4 @@
 
 12. Added title
 13. Added preview image
+14. Added combo box to categories

@@ -50,6 +50,12 @@
               class="form-control shadow-sm"
             >
               <option value="#">Choose</option>
+              <option
+                *ngFor="let cat of categoriesArray; let i = index"
+                value="{{ cat.id }}"
+              >
+                {{ cat.category }}
+              </option>
             </select>
           </div>
           <div class="form-group pt-5">
