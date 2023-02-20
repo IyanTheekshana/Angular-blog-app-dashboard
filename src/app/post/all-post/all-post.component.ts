@@ -23,7 +23,15 @@ export class AllPostComponent implements OnInit {
     return seconds;
   }
 
-  onEdit() {}
+  onDelete(id: any, path: string) {
+    this.postService.deleteImage(path);
+    this.postService.deleteData(id);
+  }
 
-  onDelete(id: any) {}
+  onFeatured(id: any, value: boolean) {
+    const featuredData = {
+      isFeatured: value,
+    };
+    this.postService.markFeatured(id, featuredData);
+  }
 }

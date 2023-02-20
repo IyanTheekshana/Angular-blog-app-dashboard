@@ -96,6 +96,7 @@ a {
 .card {
   border-radius: 1.5rem;
   overflow: hidden;
+  outline: none;
 }
 
 .card-category {
@@ -103,14 +104,29 @@ a {
   box-shadow: 4px 6px 0px 2px #026467;
 }
 
+.card-category:hover,
+.card-category:focus {
+  box-shadow: 3px 2px 0px 0px #026467;
+}
+
 .card-newpost {
   background-image: var(--secondary-bg);
   box-shadow: 4px 6px 0px 2px #ee9285;
 }
 
+.card-newpost:hover,
+.card-newpost:focus {
+  box-shadow: 3px 2px 0px 0px #ee9285;
+}
+
 .card-allpost {
   background-image: var(--ternary-bg);
   box-shadow: 4px 6px 0px 2px #012643;
+}
+
+.card-allpost:hover,
+.card-allpost:focus {
+  box-shadow: 4px 2px 0px 0px #012643;
 }
 
 .card-box {

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { Category } from 'src/app/models/category';
 import { IPost } from 'src/app/models/post';
 import { CategoriesService } from 'src/app/services/categories.service';
@@ -12,15 +13,18 @@ import { PostsService } from 'src/app/services/posts.service';
 })
 export class NewPostComponent implements OnInit {
   postForm: FormGroup;
-  formStaus: string = 'Add';
+  formStaus: string = 'Add New';
   permalink: string = '';
   imgSrc: any = '/assets/placeholer.png';
   selectedImage: any;
   categoriesArray: Category[] = [];
+  post: any;
+  postId: string = '';
 
   constructor(
     private categoryService: CategoriesService,
-    private postService: PostsService
+    private postService: PostsService,
+    private route: ActivatedRoute
   ) {
     this.postForm = new FormGroup({
       title: new FormControl(null, [
@@ -35,6 +39,36 @@ export class NewPostComponent implements OnInit {
       category: new FormControl('', Validators.required),
       postImg: new FormControl('', Validators.required),
       content: new FormControl('', Validators.required),
+    });
+
+    this.route.queryParams.subscribe((data) => {
+      this.postId = data['id'];
+      this.postService.loadOneData(data['id']).subscribe((post) => {
+        console.log(post);
+
+        this.post = post;
+
+        this.postForm = new FormGroup({
+          title: new FormControl(this.post.title, [
+            Validators.required,
+            Validators.minLength(10),
+          ]),
+          permalink: new FormControl(this.post.permalink, Validators.required),
+          excerpt: new FormControl(this.post.excerpt, [
+            Validators.required,
+            Validators.minLength(20),
+          ]),
+          category: new FormControl(
+            `${this.post.category.categoryId}-${this.post.category.category}`,
+            Validators.required
+          ),
+          postImg: new FormControl('', Validators.required),
+          content: new FormControl(this.post.content, Validators.required),
+        });
+
+        this.imgSrc = this.post.postImgPath;
+        this.formStaus = 'Edit';
+      });
     });
   }
 
@@ -69,7 +103,7 @@ export class NewPostComponent implements OnInit {
   onSubmit() {
     // console.log(this.postForm.value);
     let splitted = this.postForm.value.category.split('-');
-    const postData: IPost = {
+    let postData: IPost = {
       title: this.postForm.value.title,
       permalink: this.postForm.value.permalink,
       category: {
@@ -84,8 +118,14 @@ export class NewPostComponent implements OnInit {
       status: 'new',
       createdAt: new Date(),
     };
-    console.log(postData);
-    this.postService.uploadImage(this.selectedImage, postData);
+    // console.log(postData);
+    this.postService.uploadImage(
+      this.selectedImage,
+      postData,
+      this.formStaus,
+      this.postId
+    );
     this.postForm.reset();
+    this.imgSrc = '/assets/placeholer.png';
   }
 }

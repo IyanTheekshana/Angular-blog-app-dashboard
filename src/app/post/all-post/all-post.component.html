@@ -8,12 +8,12 @@
   <div class="row">
     <div class="col-md-3 text-center"></div>
     <div class="col-md-3 text-center">
-      <button class="btn btn-info btn-block" routerLink="/post/new">
+      <button class="btn btn-info btn-block shadow" routerLink="/new-post">
         Add new Post
       </button>
     </div>
     <div class="col-md-3 text-center">
-      <button class="btn btn-warning btn-block" routerLink="/">
+      <button class="btn btn-warning btn-block shadow" routerLink="/">
         Back to Dashboard
       </button>
     </div>
@@ -24,40 +24,65 @@
 <div class="container card p-5 mt-5 shadow-lg">
   <div class="row">
     <div class="col-md-12 text-center">
-      <table class="table table-striped hover">
+      <table class="table table-hover hover">
         <thead>
           <tr>
             <th scope="col">No.</th>
             <th scope="col">Post Image</th>
             <th scope="col">Title</th>
-            <th scope="col">Excerpt</th>
+            <!-- <th scope="col">Excerpt</th> -->
             <th scope="col">Category</th>
             <th scope="col">Date</th>
             <th scope="col">Actions</th>
+            <th scope="col">Featured</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let post of postArray; let i = index">
             <td width="10">{{ i + 1 }}</td>
             <td>
-              <img src="{{ post.postImgPath }}" width="50" height="50" />
+              <img
+                src="{{ post.postImgPath }}"
+                width="50"
+                height="50"
+                class="shadow-sm"
+              />
             </td>
-            <td width="200">{{ post.title }}</td>
-            <td width="300">{{ post.excerpt }}</td>
-            <td width="200">{{ post.category.category }}</td>
-            <td width="200">
+            <td width="400">{{ post.title }}</td>
+            <!-- <td width="300">{{ post.excerpt }}</td> -->
+            <td width="50">{{ post.category.category }}</td>
+            <td width="300">
               {{ formatDate(post.createdAt) | date }}
             </td>
-            <td width="400">
+            <td width="350">
               <button
-                class="btn btn-primary"
+                class="btn btn-primary shadow"
                 routerLink="/new-post"
                 [queryParams]="{ id: post.id }"
               >
                 Edit
               </button>
-              <button class="btn btn-danger ml-2" (click)="onDelete(i + 1)">
+              <button
+                class="btn btn-danger ml-2 shadow"
+                (click)="onDelete(post.id, post.postImgPath)"
+              >
                 Delete
+              </button>
+            </td>
+            <td width="400">
+              <button
+                *ngIf="!post.isFeatured"
+                class="btn btn-success ml-2 shadow"
+                (click)="onFeatured(post.id, true)"
+              >
+                Mark Featured
+              </button>
+              <button
+                *ngIf="post.isFeatured"
+                class="btn btn-dark ml-2 shadow"
+                (click)="onFeatured(post.id, false)"
+              >
+                Remove Featured
               </button>
             </td>
           </tr>

@@ -60,3 +60,7 @@
 ## 12° step
 
 20. Added table to all post to show posts
+
+## 13° step
+
+21. Implemented post edit delete and featured button
