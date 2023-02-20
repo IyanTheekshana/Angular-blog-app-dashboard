@@ -52,3 +52,7 @@
 
 17. created post interface
 18. implemented onSubmit method
+
+## 11° step
+
+19. added posts service and created uploadImage method to upload and get image url

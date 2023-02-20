@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Category } from 'src/app/models/category';
 import { IPost } from 'src/app/models/post';
 import { CategoriesService } from 'src/app/services/categories.service';
+import { PostsService } from 'src/app/services/posts.service';
 
 @Component({
   selector: 'app-new-post',
@@ -17,7 +18,10 @@ export class NewPostComponent implements OnInit {
   selectedImage: any;
   categoriesArray: Category[] = [];
 
-  constructor(private categoryService: CategoriesService) {
+  constructor(
+    private categoryService: CategoriesService,
+    private postService: PostsService
+  ) {
     this.postForm = new FormGroup({
       title: new FormControl(null, [
         Validators.required,
@@ -81,5 +85,6 @@ export class NewPostComponent implements OnInit {
       createdAt: new Date(),
     };
     console.log(postData);
+    this.postService.uploadImage(this.selectedImage, postData);
   }
 }
