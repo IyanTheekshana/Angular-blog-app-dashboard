@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Category } from 'src/app/models/category';
 import { CategoriesService } from 'src/app/services/categories.service';
 
@@ -8,26 +9,46 @@ import { CategoriesService } from 'src/app/services/categories.service';
   styleUrls: ['./new-post.component.css'],
 })
 export class NewPostComponent implements OnInit {
+  postForm: FormGroup;
   formStaus: string = 'Add';
   permalink: string = '';
   imgSrc: any = '/assets/placeholer.png';
   selectedImage: any;
   categoriesArray: Category[] = [];
 
-  constructor(private categoryService: CategoriesService) {}
+  constructor(private categoryService: CategoriesService) {
+    this.postForm = new FormGroup({
+      title: new FormControl(null, [
+        Validators.required,
+        Validators.minLength(10),
+      ]),
+      permalink: new FormControl('', Validators.required),
+      excerpt: new FormControl('', [
+        Validators.required,
+        Validators.minLength(20),
+      ]),
+      category: new FormControl('', Validators.required),
+      postImg: new FormControl('', Validators.required),
+      content: new FormControl('', Validators.required),
+    });
+  }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.categoryService.loadData().subscribe((data) => {
-      console.log(data);
+      // console.log(data);
       this.categoriesArray = data;
     });
+  }
+
+  get fc() {
+    return this.postForm?.controls;
   }
 
   onTitleChanged(event: any) {
     // console.log(event.target.value);
     const title = event.target.value;
     this.permalink = title.replace(/\s/g, '-');
-    console.log(this.permalink);
+    // console.log(this.permalink);
   }
 
   showPreview(event: any) {

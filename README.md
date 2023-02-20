@@ -42,3 +42,8 @@
 12. Added title
 13. Added preview image
 14. Added combo box to categories
+
+## 9. step
+
+15. added reactive form module
+16. added validators to form

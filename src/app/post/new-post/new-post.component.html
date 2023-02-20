@@ -6,7 +6,7 @@
     </div>
   </div>
   <div>
-    <form class="pt-4 pb-4" #categoryForm="ngForm">
+    <form class="pt-4 pb-4" [formGroup]="postForm">
       <div class="row">
         <div class="col-md-7">
           <div class="form-group">
@@ -16,8 +16,21 @@
               class="form-control shadow-sm"
               placeholder="Add Title Here"
               name="title"
+              id="title"
+              formControlName="title"
               (keyup)="onTitleChanged($event)"
+              [ngClass]="{
+                'is-invalid': !fc['title'].valid && fc['title'].touched
+              }"
             />
+            <div *ngIf="fc['title'].errors?.['required']">
+              <span
+                *ngIf="!fc['title'].valid && fc['title'].touched"
+                class="help-block alert"
+              >
+                Title is required and must have atleast 10 caracters</span
+              >
+            </div>
           </div>
           <div class="form-group pt-5">
             <label for="permalink">Permalink</label>
@@ -26,19 +39,29 @@
               class="form-control shadow-sm"
               placeholder="Add Permalink Here"
               name="permalink"
+              formControlName="permalink"
               [(ngModel)]="permalink"
-              disabled
+              readonly
             />
           </div>
           <div class="form-group pt-5">
-            <label for="post">Excerpt</label>
+            <label for="excerpt">Excerpt</label>
             <textarea
-              name="post"
-              id="post"
+              name="excerpt"
+              id="excerpt"
               cols="30"
               rows="9"
+              formControlName="excerpt"
               class="form-control shadow-sm"
             ></textarea>
+            <div *ngIf="fc['excerpt'].errors?.['required']">
+              <span
+                *ngIf="!fc['excerpt'].valid && fc['excerpt'].touched"
+                class="help-block alert"
+              >
+                Excerpt is required</span
+              >
+            </div>
           </div>
         </div>
         <div class="col-md-5">
@@ -48,6 +71,7 @@
               name="category"
               id="category"
               class="form-control shadow-sm"
+              formControlName="category"
             >
               <option value="#">Choose</option>
               <option
@@ -57,43 +81,68 @@
                 {{ cat.category }}
               </option>
             </select>
+            <div *ngIf="fc['category'].errors?.['required']">
+              <span
+                *ngIf="!fc['category'].valid && fc['category'].touched"
+                class="help-block alert"
+              >
+                Category is required</span
+              >
+            </div>
           </div>
           <div class="form-group pt-5">
             <label for="photo">Post Image</label>
             <input
               type="file"
               class="form-control shadow-sm"
-              name="imagePath"
-              #imagePath
+              name="postImg"
               accept="image/*"
               (change)="showPreview($event)"
+              formControlName="postImg"
             />
+
+            <div *ngIf="fc['postImg'].errors?.['required']">
+              <span
+                *ngIf="!fc['postImg'].valid && fc['postImg'].touched"
+                class="help-block alert"
+              >
+                Category is required</span
+              >
+            </div>
           </div>
           <div class="form-group pt-1">
-            <img
-              [src]="imgSrc"
-              class="imagepreview img-thumbnail shadow-sm"
-              [alt]="imagePath.value"
-            />
+            <img [src]="imgSrc" class="imagepreview img-thumbnail shadow-sm" />
           </div>
         </div>
       </div>
       <div class="row pt-5">
         <div class="col-md-12">
-          <label for="content">Content</label>
+          <!-- <label for="content">Content</label>
           <textarea
             name="content"
             id="content"
             cols="30"
             rows="9"
             class="form-control shadow-sm"
-          ></textarea>
+          ></textarea> -->
+          <angular-editor
+            placeholder="Add your content here"
+            formControlName="content"
+          ></angular-editor>
+          <div *ngIf="fc['content'].errors?.['required']">
+            <span
+              *ngIf="!fc['content'].valid && fc['content'].touched"
+              class="help-block alert"
+            >
+              Post Content is required</span
+            >
+          </div>
         </div>
       </div>
       <div class="row pt-5">
         <div class="col-md-3 text-center"></div>
         <div class="col-md-3 text-center">
-          <button class="btn btn-info btn-block">Save\ Post</button>
+          <button class="btn btn-info btn-block">Save Post</button>
         </div>
         <div class="col-md-3 text-center">
           <button class="btn btn-warning btn-block" routerLink="/">
