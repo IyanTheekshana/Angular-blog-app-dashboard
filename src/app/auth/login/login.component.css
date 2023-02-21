@@ -1,0 +1,54 @@
+.card {
+  /* background-color: var(--secondary-color); */
+  background-image: var(--primary-bg);
+  margin: auto;
+  color: var(--navbar-footer-color);
+  border: none;
+}
+
+h2 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+h2::before,
+h2::after {
+  content: "";
+  height: 0.2rem;
+  width: 25%;
+  background-color: aliceblue;
+  position: absolute;
+  top: 48%;
+}
+
+h2::before {
+  left: 0;
+}
+h2::after {
+  right: 0;
+}
+
+input {
+  height: 3.5rem;
+  font-size: 1.2rem;
+  padding-left: 2rem;
+  font-weight: 700;
+  color: var(--secondary-color);
+  border: none;
+}
+
+input::placeholder {
+  font-family: var(--main-font-family);
+}
+
+.btn {
+  height: 3.5rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.alert-login {
+  color: #fff;
+  font-size: 1.2rem;
+}

@@ -64,3 +64,11 @@
 ## 13° step
 
 21. Implemented post edit delete and featured button
+
+## 14° step
+
+22. Implemented Login page:
+    1.  implemented markup for login page
+    2.  added firebase authentication to admin user
+    3.  implemented logout button
+    4.  added guards to routes

@@ -12,7 +12,7 @@ import { CategoriesComponent } from './categories/categories.component';
 
 import { environment } from 'src/environments/environment.prod';
 
-import { provideFirebaseApp, getApp, initializeApp } from '@angular/fire/app';
+import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { FormsModule } from '@angular/forms';
 
@@ -23,8 +23,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
-
+// import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { provideAuth, getAuth } from '@angular/fire/auth';
 import { provideStorage, getStorage } from '@angular/fire/storage';
+import { LoginComponent } from './auth/login/login.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +37,7 @@ import { provideStorage, getStorage } from '@angular/fire/storage';
     CategoriesComponent,
     AllPostComponent,
     NewPostComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,7 +49,9 @@ import { provideStorage, getStorage } from '@angular/fire/storage';
     AngularEditorModule,
     ReactiveFormsModule,
     AngularFireStorageModule,
+    // AngularFireAuthModule,
     provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
+    provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
     provideStorage(() => getStorage()),
   ],
